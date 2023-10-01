@@ -1,0 +1,31 @@
+PROCEDURE insertion_sort(items)
+    
+    // Initialise the variables
+    items: ARRAY_OF INTEGER[10];
+    NB_items= length(items)
+    position , index = INTEGER
+    
+    // Repeat for each item in the list, starting at the second item
+    FOR index = 1 TO NB_items - 1
+        // Get the value of the next item to insert     
+        item_to_insert = items[index]
+
+        // Get the current position of the last sorted item
+        position = index - 1
+
+        // Repeat while there are still items in the list to check
+        // and the current sorted item is greater than the item to insert
+        WHILE position >= 0 AND items[position] > item_to_insert
+            
+            // Copy the value of the sorted item up one place
+            items[position + 1] = items[position]
+
+            // Get the position of the next sorted item
+            position = position - 1
+        END WHILE
+
+        // Copy the value of the item to insert into the correct position
+        items[position + 1] = item_to_insert  
+     NEXT index    
+END PROCEDURE
+
